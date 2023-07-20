@@ -1,27 +1,37 @@
 package com.calculator_practice
 
-abstract class AbstractOperation (num1:Int,num2:Int){
-    abstract var sign : String
-    abstract fun add()
-    abstract fun sub()
-    abstract fun mul()
-    abstract fun div()
-    }
+abstract class AbstractOperation() {
+    abstract fun operate(num1: Int, num2: Int):Double
+
+}
 
 
-class Operation (private val num1: Int, private val num2: Int, override var sign: String) :AbstractOperation(num1,num2) {
-    override fun add() {
-        println("${num1+num2}")
+class AddOperation : AbstractOperation() {
+
+    override fun operate(num1: Int, num2: Int):Double {
+        return (num1 + num2).toDouble()
     }
-    override fun sub() {
-        println("${num1-num2}")
-    }
-    override fun mul() {
-        println("${num1*num2}")
-    }
-    override fun div() {
-        println("${num1/num2}")
+
+}
+
+class SubOperation : AbstractOperation() {
+
+    override fun operate(num1: Int, num2: Int):Double {
+        return (num1 - num2).toDouble()
     }
 }
 
+class MulOperation : AbstractOperation() {
+
+    override fun operate(num1: Int, num2: Int):Double {
+       return (num1 * num2.toDouble())
+    }
+}
+
+class DivOperation : AbstractOperation() {
+
+    override fun operate(num1: Int, num2: Int):Double {
+        return (num1 / num2.toDouble())
+    }
+}
 
